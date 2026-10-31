@@ -1,2 +1,2 @@
-made by Eleora DiFranco she is an American child actress best known for The Walking Dead.
-is for her cat lady Tesla diana
+This website is made by Eleora DiFranco.
+This is for her cat Lady Tesla Diana. Tesla is with the court 3 cat brothers. 
