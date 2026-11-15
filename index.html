@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Lady Tesla Diana</title>
+<link href="assets/media/4762afa1d3.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&amp;family=Cinzel:wght@400;700;900&amp;family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<canvas id="petal-canvas"></canvas>
+<button class="back-btn" id="backBtn" onclick="goBack()">back</button>
+<button id="story-back-btn" onclick="showStoryList()">story list</button>
+<div id="lightbox">
+<button id="lightbox-close" onclick="closeLightbox()">close</button>
+<img alt="" id="lightbox-img" src=""/>
+</div>
+<!-- HERO -->
+<section id="hero">
+<div class="hero-screen">
+<div class="rule"></div>
+<h1>Lady Tesla Diana</h1>
+<div class="rule"></div>
+<p class="tagline">rule of cats</p>
+<button aria-label="Enter the court" class="hero-cat-btn" onclick="enterSite()" type="button">
+<img alt="Enter" src="media/5daf16b37f.jpg"/>
+<span style="color:#C9A84C;font-size:1.6rem;line-height:1;">&#9650;</span>
+<span class="press-hint">press</span>
+</button>
+<div style="height:clamp(0.8rem,2.5vh,1.8rem);"></div>
+<div class="scroll-down-hint">
+<span>scroll</span>
+<svg fill="none" height="18" stroke="#fff" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+</div>
+</div>
+<div class="hero-end-screen" style="justify-content:flex-end;padding-bottom:4rem;gap:1.2rem;">
+<div style="font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1rem,2vw,1.4rem);color:#C9A84C;letter-spacing:0.25em;text-transform:uppercase;text-align:center;text-shadow:0 0 18px rgba(201,168,76,0.6);">Berlioz is Loyal.</div>
+<div style="font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1rem,2vw,1.4rem);color:#C9A84C;letter-spacing:0.25em;text-transform:uppercase;text-align:center;text-shadow:0 0 18px rgba(201,168,76,0.6);">Kableton is Annoying.</div>
+<div style="font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1rem,2vw,1.4rem);color:#C9A84C;letter-spacing:0.25em;text-transform:uppercase;text-align:center;text-shadow:0 0 18px rgba(201,168,76,0.6);">O'Malley is a Friend.</div>
+<div style="font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(1.2rem,2.6vw,1.9rem);color:#C9A84C;letter-spacing:0.12em;text-transform:uppercase;text-align:center;margin-top:0.6rem;text-shadow:0 0 22px rgba(201,168,76,0.55);">Tesla is the ruler of the universe.</div>
+<img alt="" src="media/014f7e82bb.jpg" style="width:min(220px,50vw);height:auto;max-height:20vh;object-fit:contain;margin-top:0.5rem;opacity:0.95;"/>
+</div>
+</section>
+<!-- MENU -->
+<div id="menu">
+<nav class="menu-links">
+<a href="music/index.html">Melodies</a>
+<a href="photos/index.html">Gallery</a>
+<a href="#" onclick="showPage('news');return false;">News</a>
+<a href="#" onclick="showPage('discourse');return false;">Decrees</a>
+<a href="#" onclick="showPage('lineage');return false;">Lineage</a>
+<a href="games/index.html">Revels</a>
+<a href="#" onclick="showPage('store');return false;">Store</a>
+<a href="#" onclick="showPage('story');return false;">Story</a>
+</nav>
+</div>
+<!-- NEWS -->
+<div class="inner-page" id="news">
+<div class="cat-news-header">
+<div class="cat-news-title">Cat News</div>
+<svg class="cat-news-wave" viewbox="0 0 500 30" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,15 C40,0 80,30 120,15 C160,0 200,30 240,15 C280,0 320,30 360,15 C400,0 440,30 480,15 L500,15" fill="none" stroke="#cc0000" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+</div>
+<div class="news-grid">
+<div class="news-card"><img alt="" src="media/1c6b824a33.jpg"/></div>
+<div class="news-card"><img alt="" src="media/5f745e318a.jpg"/></div>
+<div class="news-card"><img alt="" src="media/ee81d6b887.jpg"/></div>
+<div class="news-card"><img alt="" src="media/237e6cd78f.jpg"/></div>
+<div class="news-card"><img alt="" src="media/1c203f3f38.jpg"/></div>
+<div class="news-card"><img alt="" src="media/f0e2c4999d.jpg"/></div>
+<div class="news-card"><img alt="" src="media/11afb5db3d.jpg"/></div>
+</div>
+</div>
+<!-- STORE -->
+<div class="inner-page" id="store">
+<h2 class="page-title">Store</h2>
+<div class="store-header">Please buy to help feed Lady Tesla — aka Tessie</div>
+<div class="pricing-outer">
+<p class="pricing-intro">Design Your Own Imprint</p>
+<p class="pricing-sub-note">Send your design — we print it — it comes to you<br/>You pay. We create. It arrives.</p>
+<div class="pricing-divider"></div>
+<div class="pricing-row"><span class="pricing-size">Half Inch</span><span class="pricing-dots"></span><span class="pricing-price">25¢ – 75¢</span></div>
+<div class="pricing-row"><span class="pricing-size">One Inch</span><span class="pricing-dots"></span><span class="pricing-price">75¢ – $1.00</span></div>
+<div class="pricing-row"><span class="pricing-size">Two Inch</span><span class="pricing-dots"></span><span class="pricing-price">$1.50 – $2.50</span></div>
+<div class="pricing-row"><span class="pricing-size">Three Inch</span><span class="pricing-dots"></span><span class="pricing-price">$2.50 – $3.50</span></div>
+<div class="pricing-row"><span class="pricing-size">Four Inch</span><span class="pricing-dots"></span><span class="pricing-price">$4.00 – $6.00</span></div>
+<div class="pricing-row"><span class="pricing-size">Full Sheet</span><span class="pricing-dots"></span><span class="pricing-price">$6.00 – $8.00</span></div>
+<p class="shipping-badge">Free Shipping on Orders Over $25</p>
+<p class="how-it-works">Design your own sticker — send it to us — we print &amp; ship directly to you</p>
+<p class="contact-line">Questions? <a href="mailto:Ladytesladiana@gmail.com">Ladytesladiana@gmail.com</a></p>
+</div>
+<div class="s1-section">
+<div class="s1-title">Printed on the Liner S1 Plus</div>
+<p class="s1-desc">Professional-grade. Built for brilliance.</p>
+<ul class="s1-features">
+<li>100% Waterproof</li><li>Brilliant Shine</li><li>Vibrant Color</li>
+<li>Scratch Resistant</li><li>UV Protected</li><li>Precision Cut</li>
+<li>Glossy Finish</li><li>Long Lasting</li><li>Kiss-Cut Quality</li><li>Professional Grade</li>
+</ul>
+</div>
+</div>
+<!-- STORY -->
+<div class="inner-page" id="story" style="align-items:center;">
+<h2 class="page-title" style="margin-bottom:1.2rem;">Story</h2>
+<div class="story-nav" id="storyNav">
+<button class="story-nav-btn active" onclick="showPart(1)">Part I — The Beginning</button>
+<button class="story-nav-btn" onclick="showPart(2)">Part II — Missing</button>
+<button class="story-nav-btn" onclick="showPart(3)">Part III — Growing Family</button>
+<button class="story-nav-btn" onclick="showPart(4)">Part IV — The Trip</button>
+<button class="story-nav-btn" onclick="showPart(5)">Part V — The Court</button>
+</div>
+<!-- PART 1 -->
+<div class="story-part active" id="part1">
+<div class="story-part-title">Part I</div>
+<div class="story-part-subtitle">The Beginning</div>
+<div class="narr-wrap"><button aria-label="Listen to Part I" class="narr-coin" id="coin-1" onclick="toggleNarr(1)"><span class="narr-face">I</span></button><div class="narr-label">Listen to this part</div></div><div class="story-rule"></div>
+<div class="story-body">
+<p>Before there was a dynasty, there was a name. <em>Tesla.</em> She was named not from mythology nor legend, but from a very human wish — a father who longed for a Tesla car received instead something far greater: a cat. A birthday gift from his family. A creature who would, in time, render any automobile entirely irrelevant. Though it must be said — she was never really <em>his.</em> She chose his daughter. The father she merely tolerates.</p>
+<p>Her full name, <em>Lady Tesla Diana</em>, carries the weight of three worlds. Diana — the Roman goddess of the hunt, sovereign of the moon and wild things — a name that suits her completely. Diana, too, as in Princess Diana: grace and a quiet refusal to be ordinary. And Diana Foxington, from Bad Guys — elegant, mysterious, never what you expect. She is not a princess. She is something higher. A <em>Lady.</em> Her nickname, to those she permits: <em>Tessie.</em></p>
+<p>Her original name was meant to be <em>Love.</em> But Tesla, as it turned out, is not particularly full of it. The name did not survive contact with her personality. <em>Lady Tesla Diana</em> did.</p>
+<p>She was acquired from a home in <em>Georgia</em> for precisely one hundred <em>Former Federal Reserve gold notes</em> — a sum appropriate for acquiring a creature of such considerable consequence. Six weeks old, believed at the time to be a Manx — but she is something more refined: an <em>American Shorthair,</em> not full-blooded perhaps, but fully and entirely perfect. The first time her person laid eyes on her, she was tucked beneath the passenger seat of a car, a small sovereign already claiming her first territory.</p>
+<p>She lived first in <em>Florida</em>, then in <em>Alabama</em>. Born into a household of four children — three of them careless with her, rough in the way that children sometimes are with small, fragile things. She was handled without ceremony. The soft kitten began to harden at the edges. <em>She did not forget.</em></p>
+<p>When the family left for a six-week trip, Tesla was left with her grandmother. She waited. She endured. A Lady does not beg to be understood — she simply exists, and lets others catch up.</p>
+</div>
+</div>
+<!-- PART 2 -->
+<div class="story-part" id="part2">
+<div class="story-part-title">Part II</div>
+<div class="story-part-subtitle">Missing</div>
+<div class="narr-wrap"><button aria-label="Listen to Part II" class="narr-coin" id="coin-2" onclick="toggleNarr(2)"><span class="narr-face">II</span></button><div class="narr-label">Listen to this part</div></div><div class="story-rule"></div>
+<div class="story-body">
+<p>Alabama. Tesla was one year old — no longer a kitten, already a presence. And then, without warning, she was <em>gone.</em></p>
+<p>Three days. Three days of names called into humid Southern air. Three days in which the world felt slightly wrong. It was the kind of absence that makes a person understand how much space one small creature can occupy in a life.</p>
+<p>During those three days, a puppy arrived as if to fill the silence. <em>Maximus Aurelius</em> — a German Shepherd of enormous enthusiasm and no discretion. He did not know he was joining a queendom. He would learn.</p>
+<p>Tesla was found beneath her grandmother's house. When she emerged, she was <em>genuinely glad</em> — visibly happy to be found. For a brief moment, she was the soft cat she might have been, had the world been gentler with her.</p>
+<p>Then she met Maximus. The happiness lasted precisely as long as it took her to register his existence. A year passed in uneasy truce. <em>She tolerated. She endured. She ruled from a distance.</em></p>
+</div>
+</div>
+<!-- PART 3 -->
+<div class="story-part" id="part3">
+<div class="story-part-title">Part III</div>
+<div class="story-part-subtitle">Growing Family</div>
+<div class="narr-wrap"><button aria-label="Listen to Part III" class="narr-coin" id="coin-3" onclick="toggleNarr(3)"><span class="narr-face">III</span></button><div class="narr-label">Listen to this part</div></div><div class="story-rule"></div>
+<div class="story-body">
+<p>Tesla was three when the next disruption arrived. A kitten, three weeks old. His name was <em>Kableton</em> — Kable, Babytons, Lord Kableton, depending on the day. Intelligent beyond comfort. Relentlessly present. He had opinions about everything and shared all of them. Tesla <em>tolerated</em> him, distantly, which was the highest honor she offered. She never warmed to him. She never really would.</p>
+<p>Then Maximus died. Unexpectedly. One year and ten months old — a German Shepherd who never got to grow into the dog he was becoming. Kableton grieved, then curdled that grief into restlessness. He began to bother Tesla. Endlessly. <em>There were fights.</em></p>
+<p>It was around this time that she became <em>Tesla Diana.</em> The name change was not dramatic. It simply became true.</p>
+<p>Three months later: <em>Tobias.</em> A full-blooded German Shepherd — a puppy when he arrived, already enormous, a dog whose joy was uncontainable and whose presence filled every room. Toby was overly playful, endlessly affectionate, and utterly without subtlety. Tesla regarded him with the patience of someone waiting for a phase to pass.</p>
+<p>Two months after that, on the day after Thanksgiving in Burlington, Iowa — two more. Cat brothers, about a year old. <em>O'Malley</em> (OJ) and <em>Berlioz</em> (Burlie). They arrived on a holiday and immediately made themselves at home.</p>
+<p>It was chaos. Too many for one Lady. But of them all, she found she could bear <em>O'Malley.</em> More than that — O'Malley and Berlioz had formed their own bond, a tight and loyal brotherhood that was plain to anyone watching. Where one was, the other was near. But it was O'Malley alone who somehow earned Tesla's guarded acceptance. Not love. Tesla Diana does not love easily. But his presence did not disturb her. He was quiet where Kableton was loud, still where Kableton was chaos. <em>She allowed him near.</em> In this court, that meant everything.</p>
+<p>Kableton remained, as ever, <em>very, very, very, very annoying.</em> He and Tesla never got along. They never would. He was simply too much — too loud, too clever, too insistent on existing in every space she occupied. She found him exhausting. He did not care.</p>
+</div>
+</div>
+<!-- PART 4 -->
+<div class="story-part" id="part4">
+<div class="story-part-title">Part IV</div>
+<div class="story-part-subtitle">The Trip</div>
+<div class="narr-wrap"><button aria-label="Listen to Part IV" class="narr-coin" id="coin-4" onclick="toggleNarr(4)"><span class="narr-face">IV</span></button><div class="narr-label">Listen to this part</div></div><div class="story-rule"></div>
+<div class="story-body">
+<p>December. The decision was made. The cats would travel.</p>
+<p>They were loaded into a trailer with air conditioning — a mobile kingdom, checked on five times daily. From <em>Iowa to Colorado.</em> Two weeks. Christmas into the new year.</p>
+<p>What happens when four cats with complicated relationships share close quarters for a fortnight? Something unexpected. <em>By the end of the two weeks, they seemed closer.</em> Something had softened. O'Malley and Berlioz, already bonded, grew closer still — their brotherhood deepening into something solid and quiet. Even Tesla Diana, sovereign of her own silence, seemed to acknowledge, just slightly, that these creatures were <em>hers.</em> Even Kableton. Even then.</p>
+<p>It was on this trip that the court received its formal titles.</p>
+<p>And Toby — the great German Shepherd who had arrived as an enormous, joyful puppy — was there too. He had come to the family in <em>September 2025,</em> a puppy already the size of a small bear, overly playful and endlessly loving. He filled every room. He was adored. But he did not stay. He died unexpectedly in <em>June 2026,</em> not yet a year into his time with them, and left behind a silence that no amount of cat drama could fill. The court grieved in its way. Tesla Diana grieved <em>privately.</em></p>
+</div>
+</div>
+<!-- PART 5 -->
+<div class="story-part" id="part5">
+<div class="story-part-title">Part V</div>
+<div class="story-part-subtitle">The Jester, The Knight, The Lord &amp; The Lady</div>
+<div class="narr-wrap"><button aria-label="Listen to Part V" class="narr-coin" id="coin-5" onclick="toggleNarr(5)"><span class="narr-face">V</span></button><div class="narr-label">Listen to this part</div></div><div class="story-rule"></div>
+<div class="story-body">
+<p>Now there are four. The dog is gone. The house belongs to the cats — which is, of course, precisely as <em>Tesla Diana</em> always intended. She is The Lady. They are all, in their way, beneath her. Even when they don't act like it.</p>
+<p><em>Kableton</em> — <em>The Lord.</em> Intelligent beyond what is comfortable, insufferable beyond what is reasonable. He has never once done anything he was told, and sees no reason to start. He and Tesla Diana have never gotten along, not really, not ever — he is too loud, too present, too relentlessly <em>there.</em> He annoys her. She ignores him. He escalates. She leaves the room. The cycle is eternal and she finds it exhausting. He considers it a game. He is, by nearly every account, <em>very, very, very, very annoying.</em></p>
+<p><em>Berlioz</em> — <em>The Knight.</em> Steadfast and dignified, he holds his position with quiet solemnity. He and O'Malley share a bond that is one of the genuinely beautiful things about this court — tight, loyal, present. Where O'Malley goes, Berlioz is not far. He bickers with Kableton endlessly, as knights and lords will do, but his loyalty to his brother and to the court is unquestioned. <em>Berlioz is great.</em> This is simply a fact.</p>
+<p><em>O'Malley</em> — <em>The Jester.</em> The fool of the court, and yet — the one Tesla Diana has chosen to tolerate above all others. She does not love him in the way humans love. But she allows him near. She does not immediately leave when he enters a room. For a cat who has spent her life guarding the perimeter of her own heart, this is a profound thing. O'Malley, for his part, is steady and loyal — bonded to Berlioz, gentle enough for Tesla, present without being intrusive. <em>He has earned her peace.</em></p>
+<p>And then there is <em>Tesla Diana. Tessie.</em></p>
+<p>She has been a kitten in Georgia. A stowaway under a car seat. A missing cat found under a grandmother's house. A reluctant queen in Alabama and Iowa. A traveler through a Colorado winter. She has outlasted dogs who loved her too loudly, cats who annoyed her beyond reason, and three careless siblings who never quite understood what they were handling.</p>
+<p>She was acquired for one hundred Former Federal Reserve gold notes. She became a goddess in practice. She is an <em>American Shorthair</em> — not full-blooded, perhaps, but fully, entirely, <em>perfectly</em> herself.</p>
+<p>She does not ask to be worshipped. She simply <em>is</em> — and expects the rest of creation to organize itself accordingly.</p>
+<p style="text-align:center;letter-spacing:0.35em;margin-top:2rem;color:#FFCC00;font-size:1.1em;font-family:'Cinzel Decorative',serif;text-shadow:0 0 20px rgba(255,200,0,0.4);">RULE OF ALL CATS.</p>
+<div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.2);text-align:center;">
+<div style="font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(1.2rem,3vw,2rem);color:#C9A84C;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;text-shadow:0 0 20px rgba(201,168,76,0.3);">In Loving Memory</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.6vw,1.8rem);color:rgba(255,255,255,0.75);line-height:2;letter-spacing:0.05em;">
+<p style="margin-bottom:1rem;"><em>Maximus Aurelius</em> — who arrived like thunder and left too soon.<br/>One year and ten months of loyalty, joy, and unconditional love.<br/>The court has never quite filled the silence he left behind.</p>
+<p><em>Toby Mac</em> — who came as a puppy and gave everything he had.<br/>September 2025 to June 2026.<br/>He was enormous in size and more enormous in heart.<br/>The realm was brighter for having known him.</p>
+<p style="margin-top:1.5rem;font-family:'Cinzel',serif;font-size:clamp(0.85rem,1.8vw,1.1rem);color:rgba(201,168,76,0.5);letter-spacing:0.3em;text-transform:uppercase;">Good boys. Forever.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DISCOURSE -->
+<div class="inner-page" id="discourse">
+  <h2 class="page-title" style="font-size:clamp(3.5rem,10vw,7rem);">Decrees</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.1rem,2.5vw,1.7rem);color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2.5rem;">Words spoken within the court</p>
+  <div style="display:flex;flex-direction:column;gap:2rem;width:100%;max-width:760px;padding:0 1rem 3rem;">
+
+    <div class="music-card">
+      <div class="music-card-title">Jokes of the Jester</div>
+      <div class="music-card-sub">Spoken by Lord O'Malley, The Jester</div>
+      <p style="font-family:'Title Wave',serif;color:#fff;line-height:1.7;text-align:left;margin:0 0 1.2rem;"><b style="font-weight:900;color:#FFD700;">Why did O&#8217;Malley roll a single kibble across the kitchen tile for three hours?</b> He called it an elite training exercise&#8212;until it rolled under the fridge, and he claimed the asset was &#8220;successfully archived.&#8221;</p><p style="font-family:'Title Wave',serif;color:#fff;line-height:1.7;text-align:left;margin:0 0 1.2rem;"><b style="font-weight:900;color:#FFD700;">Why does O&#8217;Malley have immunity in the court?</b> He says Kableton is an immovable object and Tesla is an unstoppable force, but since he is a liquid, he just pours himself into a sunny spot and melts.</p><p style="font-family:'Title Wave',serif;color:#fff;line-height:1.7;text-align:left;margin:0 0 1.2rem;"><b style="font-weight:900;color:#FFD700;">Why did O&#8217;Malley lose a fight to the bathroom hallway?</b> He jumped up and hissed, then got amazed that the &#8220;other cat&#8221; knew his exact strategy.</p><p style="font-family:'Title Wave',serif;color:#fff;line-height:1.7;text-align:left;margin:0 0 1.2rem;"><b style="font-weight:900;color:#FFD700;">Why did O&#8217;Malley yell &#8220;tell my family I love them&#8221; at midnight?</b> He was chasing the red dot when it landed on him, and he thought it was the end. Till Kableton turned it off.</p><p style="font-family:'Title Wave',serif;color:#fff;line-height:1.7;text-align:left;margin:0 0 1.2rem;"><b style="font-weight:900;color:#FFD700;">O&#8217;Malley backed into a tight cardboard box until it got stuck over his head.</b> He spent the afternoon walking blindly into walls, cheerfully announcing that someone turned off the lights and made the kingdom very bumpy.</p>
+    </div>
+
+    <div class="music-card">
+      <div class="music-card-title">The Lord's Great Battle</div>
+      <div class="music-card-sub">As told by Lord Kableton, who was there</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">One ordinary afternoon, a dragon appeared in the window. Its scales shimmered. Its breath steamed. Kableton, who has never once backed away from a challenge he did not fully understand, puffed up to twice his size, announced to the court that the beast would not be permitted to enter, and charged.<br><br>Then he reached the edge of the counter, looked down, and reconsidered.<br><br>He ran. He ran under the couch, through the laundry basket, and straight into the cabinet of pots, which fell on him with tremendous dignity. Berlioz, who had watched from his perch with the patience of a Knight and the expression of someone who had seen this before, climbed down, looked the dragon in the eye, and sat there until it went away.<br><br>Kableton emerged an hour later, covered in dust and a dish towel, and has described the battle at every meal since. In his telling, the dragon has grown to the size of the house, the fight lasted three days, and he was wounded in four places. Berlioz has never corrected him. He has, however, been seen to roll his eyes so hard he nearly fell off the shelf.</p>
+    </div>
+
+    <div class="music-card">
+      <div class="music-card-title">The Midnight War</div>
+      <div class="music-card-sub">By Berlioz the Knight</div>
+<p style="font-family:'Title Wave',serif;color:#fff;line-height:1.8;text-align:left;margin-bottom:1rem;">It was a dark and foggy night when an army of mice marched into the kitchen with toothpicks, ready for war. When we saw them, Kableton screamed like a puppy and crashed straight into the pantry. O&#8217;Malley, who was barely clinging to his last two remaining brain cells, immediately went to sleep in a laundry basket, leaving me all by myself again for the third time this month. Finally, after a couple of mice died in the bloody battle, Lady Tesla said from her bed, &#8220;This is an interesting war, but I need to go get my beauty sleep. I&#8217;ve been up for 6 minutes.&#8221; The lead mouse explained that they only invaded because a cat ate the Three Blind Mice. I looked over at the pantry, and Kableton was crawling out. It was him.</p><p style="font-family:'Title Wave',serif;color:#fff;line-height:1.8;text-align:left;margin-bottom:1rem;">I pointed a dramatic paw at him and yelled, &#8220;I declare we should execute Kableton for the triple homicide of the Three Blind Mice, and worst of all, causing capital annoyance of the first degree!&#8221; Kableton looked at me and said, &#8220;What do you mean capital annoyance of the first degree? And the mice were simply just delicious.&#8221; We don&#8217;t really care about the mice&#8212;they&#8217;re forever delicious. So fine, you&#8217;re off on the triple homicide, but you woke up the Lady, and that is the worst crime known to all cats. We all looked up to Lady Tesla. She said, &#8220;I looked at Kableton a couple of hours ago, and he came clean and gave me the mice. I let him have the spleen, because spleens are disgusting.&#8221; So the court decided that Kableton had 10 hours of litter box chores and had to fluff Tesla&#8217;s pillow for an hour. Of course, Kable skipped out on the litter box, but Tesla got a fluffed pillow.</p>
+    </div>
+    <div class="music-card">
+      <div class="music-card-title">The Ballad of Berlioz and O'Malley</div>
+      <div class="music-card-sub">Sung in the halls of the court</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">
+        Two brothers roam the quiet hall,<br>
+        O'Malley, sleepy and cute,<br>
+        And Berlioz, small and loyal,<br>
+        Never leaves his brother's side.<br><br>
+        One leads the way with steady paws,<br>
+        One follows close behind,<br>
+        No distance grows between the two,<br>
+        A bond that's honest, strong, and true.<br><br>
+        When thunder rolled and windows shook,<br>
+        And shadows crept along the wall,<br>
+        Each one would find the other's nook,<br>
+        And curl together, bold and small.<br><br>
+        Together they will always lie,<br>
+        And never leave their side.
+      </p>
+    </div>
+
+  </div>
+</div>
+<div class="inner-page" id="lineage">
+<h2 class="page-title">Lineage</h2>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.1rem,2.5vw,1.7rem);color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2.5rem;">The bloodline of Lady Tesla Diana</p>
+<div style="width:100%;max-width:760px;padding:0 1rem;">
+<div style="display:flex;width:100%;height:28px;border:1px solid rgba(201,168,76,0.4);overflow:hidden;margin-bottom:2.5rem;">
+<div style="width:61%;background:#C9A84C;"></div>
+<div style="width:13%;background:#E8CC7A;"></div>
+<div style="width:10%;background:#8B6914;"></div>
+<div style="width:7%;background:#F5E6B0;"></div>
+<div style="width:6%;background:#A67C1A;"></div>
+<div style="width:3%;background:#FFF8DC;"></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:0.6rem 1.4rem;justify-content:center;margin:-1rem 0 2rem;"><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#C9A84C;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>American Domestic Cat <b style="color:#FFD700;">61%</b></div><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#E8CC7A;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>European Domestic Cat <b style="color:#FFD700;">13%</b></div><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#8B6914;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>Maine Coon <b style="color:#FFD700;">10%</b></div><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#F5E6B0;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>Scottish Fold <b style="color:#FFD700;">7%</b></div><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#A67C1A;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>British Shorthair <b style="color:#FFD700;">6%</b></div><div style="display:flex;align-items:center;gap:0.5rem;font-family:'Title Wave',serif;color:#fff;font-size:1rem;"><span style="width:14px;height:14px;background:#FFF8DC;display:inline-block;border:1px solid rgba(201,168,76,0.6);"></span>Sphynx <b style="color:#FFD700;">3%</b></div></div>
+<div style="display:flex;flex-direction:column;gap:1.8rem;">
+<div class="music-card">
+<div class="music-card-title">American Domestic Cat — 61%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">The majority of her blood. Descended from cats that arrived in North America with European settlers, who valued them for keeping ships and homes free of rodents.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">European Domestic Cat — 13%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">Hardy, practical cats from the old country, shaped by centuries of life alongside people.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">Maine Coon — 10%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">Maine's official state cat. Known for tufted ears, a long shaggy coat, and a large frame built for harsh winters.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">Scottish Fold — 7%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">Known for ears that fold forward and down, giving an owl-like, gentle expression, and a sweet, affectionate nature.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">British Shorthair — 6%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">A stocky, round-faced breed with a dense, plush coat, known for a calm and dignified manner.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">Sphynx — 3%</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">Famously hairless, though not truly bare. A fine peach-fuzz covers the skin. The breed was developed in Toronto, Canada, in 1966.</p>
+</div>
+<div class="music-card">
+<div class="music-card-title">Temperament</div>
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);color:#fff;line-height:1.9;text-align:left;">Tesla has very low separation anxiety. When her people walk out the door, she does not wait by it. She simply carries on as the sovereign she is, a composure she likely inherited from her independent ancestors.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- TRIVIA -->
+<audio id="audio-royal2" preload="metadata"><source src="media/99a99ef5a2.mp3" type="audio/mpeg"/></audio>
+<div id="now-playing" onclick="stopAll()" style="display:none;position:fixed;bottom:2rem;left:2rem;font-family:'Title Wave',serif;font-weight:700;font-size:0.75rem;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;border:1px solid rgba(201,168,76,0.3);padding:0.4rem 0.8rem;background:#000;z-index:97;cursor:pointer;">
+  ▶ <span id="now-playing-title"></span>   ▮▮
+</div>
+<audio id="narr-1" preload="none"><source src="media/b53b8a609b.mp3" type="audio/mpeg"/></audio>
+<audio id="narr-2" preload="none"><source src="media/6d80ba931b.mp3" type="audio/mpeg"/></audio>
+<audio id="narr-3" preload="none"><source src="media/1e6660105b.mp3" type="audio/mpeg"/></audio>
+<audio id="narr-4" preload="none"><source src="media/356584c04b.mp3" type="audio/mpeg"/></audio>
+<audio id="narr-5" preload="none"><source src="media/0a7f2e2889.mp3" type="audio/mpeg"/></audio>
+<script src="assets/js/main.js"></script>
+<script>
+// deep links from other pages: #menu or #<section>
+(function(){var h=location.hash.slice(1);if(!h)return;var hero=document.getElementById('hero');hero.style.display='none';hero.style.opacity='0';
+if(h==='menu'||!document.getElementById(h)){document.getElementById('menu').classList.add('visible');}
+else{document.getElementById(h).classList.add('visible');currentPage=h;document.getElementById('backBtn').classList.add('show');if(h==='story')document.getElementById('story-back-btn').classList.add('show');}})();
+</script>
+</body>
+</html>
