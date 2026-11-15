@@ -34,6 +34,15 @@ function showTrivia(){ hideAll(); doc.getElementById('trivia-levels').classList.
 
 // ---------- trivia ----------
 let currentLevel = 'first', qIdx = 0, score = 0, answered = false, activeQs = [], timerRaf = 0, timerEnd = 0, timerLen = 0;
+let currentCorrect = '';
+function shuffleAnswers(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
 function startLevel(level){
   currentLevel = level; activeQs = TRIVIA[level].qs.slice(); qIdx = 0; score = 0;
   hideAll(); doc.getElementById('trivia-card').classList.remove('hidden');
@@ -59,33 +68,35 @@ function timeUp(){
   stopTimer();
   if(answered) return;
   answered = true;
-  const q = activeQs[qIdx];
-  doc.querySelectorAll('#answers .ans').forEach((b,i) => { b.disabled = true; if(i === q[2]) b.classList.add('right'); });
-  doc.getElementById('feedback').textContent = 'Time ran out. The answer was: ' + q[1][q[2]] + '.';
+  doc.querySelectorAll('#answers .ans').forEach(b => { b.disabled = true; if(b.textContent === currentCorrect) b.classList.add('right'); });
+  doc.getElementById('feedback').textContent = 'Time ran out. The answer was: ' + currentCorrect + '.';
   showNext();
 }
 function renderQuestion(){
   const q = activeQs[qIdx];
   answered = false;
+  currentCorrect = q[1][q[2]];
+  const choices = shuffleAnswers(q[1]);
   doc.getElementById('hud-trivia').textContent = TRIVIA[currentLevel].title + '  ·  Question ' + (qIdx+1) + ' of ' + activeQs.length + '  ·  Score ' + score;
   doc.getElementById('question').textContent = q[0];
   const box = doc.getElementById('answers'); box.innerHTML = '';
-  q[1].forEach((txt,i) => {
+  choices.forEach(txt => {
     const b = doc.createElement('button'); b.className = 'ans'; b.textContent = txt;
-    b.onclick = () => pick(i); box.appendChild(b);
+    b.onclick = () => pick(txt); box.appendChild(b);
   });
   doc.getElementById('feedback').textContent = '';
   doc.getElementById('next').classList.add('hidden');
   startTimer();
 }
-function pick(i){
+function pick(choice){
   if(answered) return;
   answered = true; stopTimer();
-  const q = activeQs[qIdx];
-  const btns = doc.querySelectorAll('#answers .ans');
+  const btns = [...doc.querySelectorAll('#answers .ans')];
   btns.forEach(b => b.disabled = true);
-  if(i === q[2]){ score++; btns[i].classList.add('right'); doc.getElementById('feedback').textContent = 'Correct. The Lady notices.'; }
-  else { btns[i].classList.add('wrong'); btns[q[2]].classList.add('right'); doc.getElementById('feedback').textContent = 'Incorrect. The answer was: ' + q[1][q[2]] + '.'; }
+  const chosenBtn = btns.find(b => b.textContent === choice);
+  const rightBtn = btns.find(b => b.textContent === currentCorrect);
+  if(choice === currentCorrect){ score++; if(chosenBtn) chosenBtn.classList.add('right'); doc.getElementById('feedback').textContent = 'Correct. The Lady notices.'; }
+  else { if(chosenBtn) chosenBtn.classList.add('wrong'); if(rightBtn) rightBtn.classList.add('right'); doc.getElementById('feedback').textContent = 'Incorrect. The answer was: ' + currentCorrect + '.'; }
   showNext();
 }
 function showNext(){

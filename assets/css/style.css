@@ -188,6 +188,15 @@ audio{display:none;}
 /* ===== PHONE PAGER: on phones every section fits the screen; long sections turn into pages (arrows, swipe, dots) ===== */
 .pg-flow,.pg-track{display:contents;}
 .pg-nav{display:none;}
+
+/* Decrees: one consistent size for body, card titles, subs, and items. Only the page title stays larger. */
+#discourse p,
+#discourse b,
+#discourse .music-card-title,
+#discourse .music-card-sub {
+  font-size: 1.2rem !important;
+}
+
 @media (max-width:700px){
   html,body{overflow:hidden;overscroll-behavior:none;}
   .inner-page{display:block;overflow:hidden;overflow:clip;padding:0 !important;touch-action:pan-x pinch-zoom;}

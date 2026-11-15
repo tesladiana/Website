@@ -135,7 +135,9 @@ const tracks = {
   royal4: { el: null, name: 'Inspirational Symphony',        bar: 'bar-royal4', btn: 'btn-royal4', icon: 'icon-royal4' },
   royal5: { el: null, name: 'Everybody Wants to Be a Cat',                  bar: 'bar-royal5', btn: 'btn-royal5', icon: 'icon-royal5' },
   royal6: { el: null, name: 'I Can\'t Wait to Be King',            bar: 'bar-royal6', btn: 'btn-royal6', icon: 'icon-royal6' },
-  royal7: { el: null, name: 'Friend Like Me', bar: 'bar-royal7', btn: 'btn-royal7', icon: 'icon-royal7' }
+  royal7: { el: null, name: 'Friend Like Me', bar: 'bar-royal7', btn: 'btn-royal7', icon: 'icon-royal7' },
+  royal8: { el: null, name: "Can't Catch Me Now", bar: 'bar-royal8', btn: 'btn-royal8', icon: 'icon-royal8' },
+  royal9: { el: null, name: 'I Always Wanted A Brother', bar: 'bar-royal9', btn: 'btn-royal9', icon: 'icon-royal9' }
 };
 let currentTrack = null;
 
@@ -148,6 +150,8 @@ function initAudio() {
   tracks.royal5.el = document.getElementById('audio-royal5');
   tracks.royal6.el = document.getElementById('audio-royal6');
   tracks.royal7.el = document.getElementById('audio-royal7');
+  tracks.royal8.el = document.getElementById('audio-royal8');
+  tracks.royal9.el = document.getElementById('audio-royal9');
   Object.values(tracks).forEach(t => {
     if(t.el) {
       t.el.addEventListener('timeupdate', () => {

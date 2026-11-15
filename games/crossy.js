@@ -46,7 +46,7 @@
       const wcells = L.kind === 'lily' ? 1 : 2 + Math.floor(Math.random()*2);
       for(let i=0;i<n;i++) L.items.push({x: i*(W+CW*2)/n + Math.random()*20, w: CW*wcells, seed: Math.random()});
     } else {
-      for(let c=0;c<COLS;c++) if(c !== 4 && Math.random() < 0.13) L.items.push({col:c, kind: Math.random()<0.5 ? 'topiary' : 'roses'});
+      for(let c=0;c<COLS;c++) if(c !== 4 && Math.random() < 0.13) L.items.push({col:c, kind: Math.random()<0.5 ? 'topiary' : 'roses', scale: 0.7 + Math.random()*0.6});
     }
     return L;
   }
@@ -242,11 +242,6 @@
       if(L.type === 'garden'){
         g.fillStyle = r % 2 ? '#1d4a24' : '#21522a'; g.fillRect(0,y,W,RH);
         g.fillStyle = 'rgba(255,255,255,.05)'; for(let c=0;c<COLS;c+=2) g.fillRect(c*CW, y, CW, RH);
-        L.items.forEach(b => { const bx = b.col*CW + CW/2, by = y + RH/2;
-          if(b.kind === 'topiary'){ g.fillStyle = '#0e3a17'; g.beginPath(); g.arc(bx, by-6, 13, 0, Math.PI*2); g.fill(); g.beginPath(); g.arc(bx, by+9, 9, 0, Math.PI*2); g.fill();
-            g.fillStyle = '#7a5a14'; g.fillRect(bx-6, by+14, 12, 8); crown(bx, by-17, 6); }
-          else { g.fillStyle = '#0b5a22'; g.beginPath(); g.arc(bx,by,CW*0.38,0,Math.PI*2); g.fill();
-            g.fillStyle = '#B3123A'; [[-8,-6],[7,-4],[0,7],[-2,-1]].forEach(([dx,dy]) => { g.beginPath(); g.arc(bx+dx,by+dy,5,0,Math.PI*2); g.fill(); }); } });
       } else if(L.type === 'path'){
         g.fillStyle = '#b9a47a'; g.fillRect(0,y,W,RH);
         g.fillStyle = 'rgba(80,60,30,.18)'; for(let k=0;k<26;k++) g.fillRect((k*53 + r*29) % W, y + (k*17 % RH), 3, 2);
@@ -258,6 +253,33 @@
         L.items.forEach(it => (L.kind === 'lily' ? drawLily : drawRaft)(it, y));
       }
       if(r > 0 && r % 25 === 0){ g.fillStyle = GOLD; g.font = "700 11px 'Title Wave',serif"; g.fillText(String(r), 4, y+13); }
+    }
+    // garden plants in a second pass so varied tree tops aren't clipped by the next lane,
+    // but still sit under the cat and under any hazards drawn with their own lanes.
+    function drawGardenItem(b, y){
+      const s = b.scale || 1, bx = b.col*CW + CW/2, plantY = y + RH - 4;
+      // clip mostly to this column plus a little side room, and allow a short peek upward
+      g.save();
+      g.beginPath();
+      g.rect(b.col*CW - 4, y - RH*0.35, CW + 8, RH + RH*0.35);
+      g.clip();
+      if(b.kind === 'topiary'){
+        g.fillStyle = '#7a5a14'; g.fillRect(bx-6*s, plantY-8*s, 12*s, 8*s);
+        g.fillStyle = '#0e3a17';
+        g.beginPath(); g.arc(bx, plantY-13*s, 9*s, 0, Math.PI*2); g.fill();
+        g.beginPath(); g.arc(bx, plantY-28*s, 13*s, 0, Math.PI*2); g.fill();
+        crown(bx, plantY-39*s, 6*s);
+      } else {
+        const by = plantY - CW*0.38*s;
+        g.fillStyle = '#0b5a22'; g.beginPath(); g.arc(bx, by, CW*0.38*s, 0, Math.PI*2); g.fill();
+        g.fillStyle = '#B3123A';
+        [[-8,-6],[7,-4],[0,7],[-2,-1]].forEach(([dx,dy]) => { g.beginPath(); g.arc(bx+dx*s, by+dy*s, 5*s, 0, Math.PI*2); g.fill(); });
+      }
+      g.restore();
+    }
+    for(let r=r0;r<=r1;r++){
+      const L = lane(r);
+      if(L.type === 'garden') L.items.forEach(b => drawGardenItem(b, yOf(r)));
     }
     // cat
     const lift = S.hopT < 1 ? Math.sin(S.hopT*Math.PI)*10 : 0;
